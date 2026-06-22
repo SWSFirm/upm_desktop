@@ -1,0 +1,353 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 16px;
+}
+
+
+.footer {
+  background: var(--color-blue-900);
+  padding-block: 24px;
+}
+
+.movecenter {
+  justify-content: center;
+  
+}
+
+.backgroundColorz{
+
+  background-color:#FC9E25;
+}
+
+.footer .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-padding {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+/* larger screens */
+@media (min-width: 992px) {
+  .page-padding {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontal centering */
+  justify-content: center;
+  width: 1100px;       /* desktop fixed width like Framer example */
+  margin:0 auto;
+  box-sizing: border-box;
+}
+
+.site-inner {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 2rem;     /* side padding for inner content */
+  box-sizing: border-box;
+}
+
+/* medium screens */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .site-wrapper { width: 810px; }
+  .site-inner { max-width: 810px; padding: 0 1.5rem; }
+}
+
+/* small screens */
+@media (max-width: 800px) {
+  .site-wrapper { width: 390px; }
+  .site-inner { max-width: 390px; padding: 0 1rem; }
+}
+
+/* welcome section images */
+.welcome-images {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* increased size for the three feature images */
+.welcome-images img {
+  flex: 1 1 calc(33.333% - 0.66rem); /* 3-up layout */
+  max-width: calc(33.333% - 0.66rem);
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 1.25rem; /* breathing room */
+  min-width: 180px; /* prevents images from becoming too small */
+}
+
+/* on very wide screens you can allow fixed larger images (optional) */
+@media (min-width: 1400px) {
+  .welcome-images img {
+    flex: 0 0 420px;
+    max-width: 420px;
+  }
+}
+
+/* stack vertically on small screens */
+@media (max-width: 767px) {
+  .welcome-images {
+    flex-direction: column;
+    align-items: center;
+  }
+  .welcome-images img {
+    width: 100%;
+    max-width: 420px;
+    flex: 0 0 auto;
+    margin-bottom: 1rem;
+    min-width: 0;
+  }
+}
+
+.three-cols img {
+  max-width: 283px;   /* increase size of the three feature images */
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.75rem;
+}
+@media (max-width: 720px) {
+  .three-cols img { max-width: 320px; }
+}
+
+/* stronger section title */
+.section-title {
+  font-weight: 800;      /* very bold */
+  font-size: 2.25rem;    /* adjust size if needed */
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+}
+
+.textcolorPurple{
+  color: #6544BE;
+}
+
+.btn-xl {
+    padding: 1.25rem 2.25rem;
+    font: #6544BE;
+    font-size: 0.95rem;
+    font-weight: 500;      
+    border: none;
+    border-radius: 10rem;
+}
+
+.round-button{
+  padding-top: 1.25rem;
+  font: #6544BE;
+  font-size: 0.85rem;
+  font-weight: 300;    
+  border: none;
+  justify-content: center; 
+  height: 110px;
+  width: 110px;
+  border-radius: 60px;
+
+}
+
+
+
+/* Carousel (feature screenshots) styles */
+#featureCarousel {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  /* Reserve a modest amount of bottom space for indicators & controls.
+     Reduced from 80px so dots are closer to the image. */
+  padding-bottom: 1px;
+}
+
+#featureCarousel .carousel-inner {
+  /* Keep Bootstrap's carousel layout. Avoid flex which makes multiple
+     slides appear side-by-side causing the "half-image + white space" bug. */
+  position: relative;
+  overflow: hidden;
+}
+
+#featureCarousel .carousel-item {
+  text-align: center;
+}
+
+/* Make carousel images larger and preserve aspect ratio */
+#featureCarousel .carousel-item img {
+  /* Make images fill the carousel width while preserving aspect ratio.
+     Use max-height to limit vertical growth. */
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 64vh; /* scale with viewport for larger presentation */
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* Ensure only the active slide is visible (matches Bootstrap behavior).
+   This prevents multiple slides from being visible at once if other rules
+   accidentally expose them. */
+#featureCarousel .carousel-item { display: none; }
+#featureCarousel .carousel-item.active { display: block; }
+
+/* Fallback pixel max-heights for predictable behavior */
+@media (min-width: 992px) {
+  #featureCarousel .carousel-item img { max-height: 540px; }
+}
+@media (min-width: 1200px) {
+  #featureCarousel .carousel-item img { max-height: 640px; }
+}
+@media (max-width: 767px) {
+  #featureCarousel .carousel-item img { max-height: 320px; }
+}
+
+.carousel-dots {
+ text-align: center;
+  margin-bottom: 4px; /* tiny breathing room */
+}
+.carousel-dots .carousel-dot {
+  margin: 0 6px;
+  display: inline-block;
+  background-color: #ccc;
+}
+
+.carousel-dot.active {
+  background-color: #6843B8;
+}
+
+
+/* Indicators: larger dots and brand color */
+#featureCarousel .carousel-indicators li {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.2);
+  border: none;
+  margin-bottom: 0 !important;
+  bottom: 0 !important;
+}
+#featureCarousel .carousel-indicators .active {
+  background-color: #6544BE; /* textcolorPurple */
+  box-shadow: 0 0 0 4px rgba(101,68,190,0.12);
+}
+
+/* Controls: larger circular background for better touch targets */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0,0,0,0.35);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  background-size: 18px 18px;
+}
+
+/* Place controls slightly outside the image area so they don't sit on top
+   of the image. Make width auto and add padding to increase hit target. */
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+  padding: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Push controls a bit further from the carousel image edges */
+.carousel-control-prev { left: -32px; z-index: 20; }
+.carousel-control-next { right: -32px; z-index: 20; }
+
+/* Indicators: move below the image and space away from it */
+/* Indicators: place below the image and keep them centered. Add a lower
+   bottom offset so they don't overlap the controls; ensure indicators sit
+   beneath controls in stacking order. */
+#featureCarousel .carousel-indicators {
+  bottom: -28px; /* move the dots closer to the image (reduced) */
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  z-index: 10; /* under controls (controls have z-index:20) */
+  margin: 0 auto;
+  left: 0; right: 0; /* center within carousel */
+  width: auto;
+  max-width: calc(100% - 160px); /* keep them clear of side controls */
+}
+
+/* Small-screen adjustments so the offsets don't overflow */
+@media (max-width: 767px) {
+  .carousel-control-prev { left: -8px; }
+  .carousel-control-next { right: -8px; }
+  /* indicators a bit closer on small screens */
+  #featureCarousel .carousel-indicators { bottom: -18px; max-width: calc(100% - 96px); }
+  /* reduce bottom padding on small screens so layout stays compact */
+  #featureCarousel { padding-bottom: 32px; }
+}
+
+@media (min-width: 1200px) {
+  /* a touch more separation on wide screens */
+  .carousel-control-prev { left: -44px; }
+  .carousel-control-next { right: -44px; }
+  /* slightly increased separation on very wide screens (but not too far) */
+  #featureCarousel .carousel-indicators { bottom: -36px; }
+  /* a little more room on wide screens */
+  #featureCarousel { padding-bottom: 72px; }
+}
+
+/* Small refinement when carousel is inside constrained container */
+#featureCarousel .d-block {
+  max-width: 100%;
+}
+
+
+#featureCarousel {
+  padding-bottom: 0 !important;
+}
+
+
+/* Targeted spacing for the download buttons that follow the carousel */
+.download-buttons {
+ margin-top: 0 !important;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+
+@media (min-width: 576px) {
+  .site-wrapper {
+    max-width: 540px;
+  }
+
+  .movecenter{
+    margin: 4;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-wrapper {
+    max-width: 720px;
+  }
+  .download-buttons { margin-top: 28px; }
+}
+
+@media (min-width: 992px) {
+  .site-wrapper {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .site-wrapper {
+    max-width: 1140px;
+  }
+}
+
