@@ -44,7 +44,8 @@
   flex-direction: column;
   align-items: center; /* horizontal centering */
   justify-content: center;
-  width: 1100px;       /* desktop fixed width like Framer example */
+  width: 100%;
+  max-width: 1100px;       /* desktop fixed width like Framer example */
   margin:0 auto;
   box-sizing: border-box;
 }
@@ -58,14 +59,14 @@
 
 /* medium screens */
 @media (min-width: 810px) and (max-width: 1199px) {
-  .site-wrapper { width: 810px; }
+  .site-wrapper { max-width: 810px; }
   .site-inner { max-width: 810px; padding: 0 1.5rem; }
 }
 
 /* small screens */
 @media (max-width: 800px) {
-  .site-wrapper { width: 390px; }
-  .site-inner { max-width: 390px; padding: 0 1rem; }
+  .site-wrapper { max-width: 100%; }
+  .site-inner { max-width: 100%; padding: 0 1rem; }
 }
 
 /* welcome section images */
@@ -198,7 +199,11 @@
    This prevents multiple slides from being visible at once if other rules
    accidentally expose them. */
 #featureCarousel .carousel-item { display: none; }
-#featureCarousel .carousel-item.active { display: block; }
+#featureCarousel .carousel-item.active,
+#featureCarousel .carousel-item-next,
+#featureCarousel .carousel-item-prev {
+  display: block;
+}
 
 /* Fallback pixel max-heights for predictable behavior */
 @media (min-width: 992px) {
@@ -211,94 +216,13 @@
   #featureCarousel .carousel-item img { max-height: 320px; }
 }
 
-.carousel-dots {
- text-align: center;
-  margin-bottom: 4px; /* tiny breathing room */
-}
-.carousel-dots .carousel-dot {
-  margin: 0 6px;
-  display: inline-block;
-  background-color: #ccc;
-}
-
-.carousel-dot.active {
-  background-color: #6843B8;
-}
-
-
-/* Indicators: larger dots and brand color */
-#featureCarousel .carousel-indicators li {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: rgba(0,0,0,0.2);
-  border: none;
-  margin-bottom: 0 !important;
-  bottom: 0 !important;
-}
-#featureCarousel .carousel-indicators .active {
-  background-color: #6544BE; /* textcolorPurple */
-  box-shadow: 0 0 0 4px rgba(101,68,190,0.12);
-}
-
-/* Controls: larger circular background for better touch targets */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: rgba(0,0,0,0.35);
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  background-size: 18px 18px;
-}
-
-/* Place controls slightly outside the image area so they don't sit on top
-   of the image. Make width auto and add padding to increase hit target. */
-.carousel-control-prev,
-.carousel-control-next {
-  width: auto;
-  padding: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/* Push controls a bit further from the carousel image edges */
-.carousel-control-prev { left: -32px; z-index: 20; }
-.carousel-control-next { right: -32px; z-index: 20; }
-
-/* Indicators: move below the image and space away from it */
-/* Indicators: place below the image and keep them centered. Add a lower
-   bottom offset so they don't overlap the controls; ensure indicators sit
-   beneath controls in stacking order. */
-#featureCarousel .carousel-indicators {
-  bottom: -28px; /* move the dots closer to the image (reduced) */
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  z-index: 10; /* under controls (controls have z-index:20) */
-  margin: 0 auto;
-  left: 0; right: 0; /* center within carousel */
-  width: auto;
-  max-width: calc(100% - 160px); /* keep them clear of side controls */
-}
-
-/* Small-screen adjustments so the offsets don't overflow */
-@media (max-width: 767px) {
-  .carousel-control-prev { left: -8px; }
-  .carousel-control-next { right: -8px; }
-  /* indicators a bit closer on small screens */
-  #featureCarousel .carousel-indicators { bottom: -18px; max-width: calc(100% - 96px); }
-  /* reduce bottom padding on small screens so layout stays compact */
-  #featureCarousel { padding-bottom: 32px; }
+#featureCarousel .carousel-item {
+  transition: opacity 1.8s ease-in-out;
 }
 
 @media (min-width: 1200px) {
-  /* a touch more separation on wide screens */
-  .carousel-control-prev { left: -44px; }
-  .carousel-control-next { right: -44px; }
-  /* slightly increased separation on very wide screens (but not too far) */
-  #featureCarousel .carousel-indicators { bottom: -36px; }
   /* a little more room on wide screens */
-  #featureCarousel { padding-bottom: 72px; }
+  #featureCarousel { padding-bottom: 1rem; }
 }
 
 /* Small refinement when carousel is inside constrained container */
@@ -351,3 +275,233 @@
   }
 }
 
+/* Responsive phone support: iPhone SE/XR/12 Pro/14 Pro Max and modern Android widths */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0 clamp(0.75rem, 3.5vw, 3rem);
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.navbar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar .container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar-collapse {
+  flex-basis: 100%;
+}
+
+.section-title {
+  overflow-wrap: anywhere;
+}
+
+.btn-xl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin: 0.35rem;
+  max-width: 100%;
+  min-height: 48px;
+  text-align: center;
+  white-space: normal;
+}
+
+#featureCarousel {
+  max-width: 100%;
+}
+
+.social img {
+  max-height: 86px;
+  object-fit: contain;
+}
+
+.site-footer {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 2.5rem;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
+  border-top: 1px solid rgba(101, 68, 190, 0.16);
+  overflow-wrap: anywhere;
+}
+
+.footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.footer-row {
+  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
+  row-gap: 1rem;
+}
+
+.footer-logo,
+.footer-spacer {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  justify-content: center;
+}
+
+.footer-spacer {
+  justify-content: flex-end;
+}
+
+.footer-contact p,
+.footer-copy h5 {
+  margin-bottom: 0.35rem;
+}
+
+.footer-copy {
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+@media (max-width: 575.98px) {
+  body {
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
+
+  .site-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .welcome {
+    padding-right: 0 !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.65rem, 8vw, 2.1rem);
+    line-height: 1.15;
+  }
+
+  .h4,
+  h4 {
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+
+  #featureCarousel {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #featureCarousel .carousel-item img {
+    max-height: 58vh;
+    border-radius: 8px;
+  }
+
+  .download-buttons,
+  .justify-content-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-xl {
+    width: 100%;
+    max-width: 22rem;
+    padding: 0.85rem 1rem;
+    border-radius: 999px;
+  }
+
+  .pl-4.p-4.justify-content-center.m-4 {
+    margin: 0.75rem 0 !important;
+    padding: 0.75rem 0 !important;
+  }
+
+  .social .row {
+    row-gap: 1.5rem;
+  }
+
+  .social .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .social .ml-4,
+  .social .pl-2,
+  .social .mt-4 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .site-footer {
+    margin-top: 1.5rem;
+    padding: 1.5rem max(0.75rem, env(safe-area-inset-left)) 1.5rem max(0.75rem, env(safe-area-inset-right));
+  }
+
+  .site-footer .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: center;
+  }
+
+  .footer-logo,
+  .footer-spacer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 374.98px) {
+  body {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+
+  .navbar-brand img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+  }
+
+  .section-title img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .btn-xl {
+    font-size: 0.9rem;
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+}

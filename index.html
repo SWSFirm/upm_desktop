@@ -16,7 +16,7 @@
     <title>UPM | Password Manager</title>
   </head>
 
-  <body class="px-4 px-md-5 ">
+  <body>
 
     <div class="site-wrapper justify-content-center">
 
@@ -64,7 +64,7 @@
                                             
                                               
       <!-- Carousel: feature screenshots -->
-        <div id="featureCarousel" class="carousel slide m-2" data-ride="carousel" data-interval="5000" style="position: relative;">
+        <div id="featureCarousel" class="carousel slide carousel-fade m-2" data-ride="carousel" data-interval="8000" data-pause="false">
           <div class="carousel-inner text-center">
             <div class="carousel-item active">
               <img src="images/snipA.PNG" alt="Feature 1 — dashboard preview" loading="lazy"
@@ -79,55 +79,28 @@
                   class="d-block mx-auto img-fluid" style="max-height: 540px; object-fit: contain;">
             </div>
           </div>
-
-          <!-- Custom Navigation -->
-          <a class="carousel-control-prev " href="#featureCarousel" role="button" data-slide="prev" style="left: -60px;">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next " href="#featureCarousel" role="button" data-slide="next" style="right: -60px;">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-
-          <!-- Dot Indicators -->
-              <div class="carousel-dots mt-1">
-                <span class="carousel-dot active" data-target="#featureCarousel" data-slide-to="0"></span>
-                <span class="carousel-dot" data-target="#featureCarousel" data-slide-to="1"></span>
-                <span class="carousel-dot" data-target="#featureCarousel" data-slide-to="2"></span>
-              </div>
         </div>
       <!-- Carousel: feature screenshots end here -->
       
   <!-- Carousel: scripts starts here -->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-              const carouselElement = document.getElementById('featureCarousel');
-              const carousel = $('#featureCarousel').carousel(); // Bootstrap 4 jQuery API
-              const dots = document.querySelectorAll('.carousel-dot');
-
-              // Sync active dot on slide event
-              carouselElement.addEventListener('slid.bs.carousel', function (e) {
-                dots.forEach(dot => dot.classList.remove('active'));
-                dots[e.to].classList.add('active');
-              });
-
-              // Click to slide
-              dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                  $('#featureCarousel').carousel(index);
-                });
+              $('#featureCarousel').carousel({
+                interval: 8000,
+                pause: false,
+                ride: 'carousel',
+                wrap: true
               });
             });
         </script>
       <!-- Carousel: scripts ends here -->
 
       <!-- Download Buttons Located after the carousel images -->
-        <div class="">
-          <a target="_blank" href="https://reviewsamples.itch.io/upm-8-mobile" class="btn btn-primary btn-xl">
+        <div class="download-buttons">
+          <a target="_blank" href="https://reviewsamples.itch.io/upm-version-8-desktop-demo" class="btn btn-primary btn-xl">
             <img width="20" height="20" src="images/windows.png" alt="Windows icon"/> Download on Itch
           </a>
-          <a target="_blank" href="https://reviewsamples.itch.io/upm-8-mobile" class="btn btn-primary btn-xl">
+          <a target="_blank" href="https://reviewsamples.itch.io/upm-version-8-desktop-demo" class="btn btn-primary btn-xl">
             <img width="20" height="20" src="images/windows.png" alt="Windows icon"/> Download on Gumroad
           </a>
         </div>
@@ -151,10 +124,10 @@
                               <!-- Spacing -->
                               <div class="mb-3"></div>
                                   <!-- Download Button itch.io -->
-                              <a target="_blank" href="https://reviewsamples.itch.io/upm-8-mobile" class=" btn btn-primary btn-xl"> 
+                              <a target="_blank" href="https://reviewsamples.itch.io/upm-version-8-desktop-demo" class=" btn btn-primary btn-xl"> 
                                   <img width="20" height="20" src="images/windows.png"/> Download on Itch</a>
                               <!-- Download Button On Gumroad -->
-                              <a target="_blank" href="https://reviewsamples.itch.io/upm-8-mobile" class=" btn btn-primary btn-xl"> 
+                              <a target="_blank" href="https://reviewsamples.itch.io/upm-version-8-desktop-demo" class=" btn btn-primary btn-xl"> 
                                   <img width="20" height="20" src="images/windows.png"/> Download on Gumroad</a>
                               <!-- Spacing -->
                               <div class="mb-3"></div>
@@ -183,11 +156,11 @@
                                       </p> -->
                                       <br>
                                       <!-- Download Button itch.io -->
-                                  <a target="_blank" href="https://reviewsamples.itch.io/upm-8-mobile" class=" btn btn-primary btn-xl" >
+                                  <a target="_blank" href="https://reviewsamples.itch.io/upm-version-8-desktop-demo" class=" btn btn-primary btn-xl" >
                                     <img width="20" height="20" src="images/windows.png"/> Download on Itch
                                   </a>
                                   <!-- Download Button On Gumroad -->
-                                  <a target="_blank" href="https://reviewsamples.itch.io/upm-8-mobile" class=" btn btn-primary btn-xl" >
+                                  <a target="_blank" href="https://reviewsamples.itch.io/upm-version-8-desktop-demo" class=" btn btn-primary btn-xl" >
                                     <img width="20" height="20" src="images/windows.png"/> Download on Gumroad
                                   </a>
                               </div>
@@ -223,10 +196,10 @@
                       <br>
                       <div class="justify-content-center">
                           <!-- Download Button itch.io -->
-                          <a target="_blank" href="https://reviewsamples.itch.io/upm-8-mobile" class=" btn btn-primary btn-xl" >
+                          <a target="_blank" href="https://reviewsamples.itch.io/upm-version-8-desktop-demo" class=" btn btn-primary btn-xl" >
                               <img width="20" height="20" src="images/windows.png"/> Download on Itch</a>
                           <!-- Download Button On Gumroad -->
-                          <a target="_blank" href="https://reviewsamples.itch.io/upm-8-mobile" class=" btn btn-primary btn-xl" > 
+                          <a target="_blank" href="https://reviewsamples.itch.io/upm-version-8-desktop-demo" class=" btn btn-primary btn-xl" > 
                               <img width="20" height="20" src="images/windows.png"/> Download on Gumroad</a>
                       </div>                    
               </div>
@@ -275,20 +248,17 @@
         </div>
       </div> 
 
-      <hr class="my-4">
-        
-        </div>
-            
+       
       <!--- Footer -->
 
-    <footer >
-      <div class="container-fluid padding ">
-          <div class="row m-4">
-            <div class="col-md-4">
+    <footer class="site-footer">
+      <div class="container-fluid padding footer-inner">
+          <div class="row footer-row">
+            <div class="col-md-4 footer-logo">
             <img src="Images/newlogosquare.png" width="60" height="60" alt="">			
             </div>
             
-            <div class="col-md-4 text-center">
+            <div class="col-md-4 text-center footer-contact">
                   
               <p> 0977178883</p>
               <p> Residenttechnician@gmail.com</p>
@@ -297,11 +267,11 @@
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 footer-spacer">
                 
             </div>
         
-            <div class="col-12">
+            <div class="col-12 footer-copy">
 
                          
               <h5> <datetime class="now"></datetime> &copy; Self</h5>
